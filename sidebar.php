@@ -4,14 +4,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _s
+ * @package juzhaxpress
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_activejuzhaxpressidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
 
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php dynamicjuzhaxpressidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

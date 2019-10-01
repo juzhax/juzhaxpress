@@ -1,22 +1,22 @@
 .content-area {
 	float: right;
-	margin: 0 0 0 (-$size__site-sidebar);
-	width: $size__site-main;
+	margin: 0 0 0 (-$size_juzhaxpressite-sidebar);
+	width: $size_juzhaxpressite-main;
 }
 
 .site-main {
-	margin: 0 0 0 $size__site-sidebar;
+	margin: 0 0 0 $size_juzhaxpressite-sidebar;
 }
 
 .site-content .widget-area {
 	float: left;
 	overflow: hidden;
-	width: $size__site-sidebar;
+	width: $size_juzhaxpressite-sidebar;
 }
 
 .site-footer {
 	clear: both;
-	width: $size__site-main;
+	width: $size_juzhaxpressite-main;
 }
 
 @import "no-sidebar";

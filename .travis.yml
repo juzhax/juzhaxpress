@@ -2,7 +2,7 @@
 # @link https://travis-ci.org/
 
 # For use with the Underscores WordPress theme.
-# @link https://github.com/Automattic/_s
+# @link https://github.com/Automattic/juzhaxpress
 
 # Ditch sudo and use containers.
 # @link https://docs.travis-ci.com/user/migrating-from-legacy/#Why-migrate-to-container-based-infrastructure%3F
@@ -45,7 +45,7 @@ matrix:
 # Use this to prepare your build for testing.
 # e.g. copy database configurations, environment variables, etc.
 # Failures in this section will result in build status 'errored'.
-before_script:
+beforejuzhaxpresscript:
     # Speed up build time by disabling Xdebug.
     - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
     # Set up temporary paths.
