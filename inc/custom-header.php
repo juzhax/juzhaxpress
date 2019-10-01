@@ -8,40 +8,40 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses juzhaxpress_headerjuzhaxpresstyle()
+ * @uses juzhaxpress_header_style()
  */
-function juzhaxpress_custom_headerjuzhaxpressetup() {
-	add_themejuzhaxpressupport( 'custom-header', apply_filters( 'juzhaxpress_custom_header_args', array(
+function juzhaxpress_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'juzhaxpress_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'juzhaxpress_headerjuzhaxpresstyle',
+		'wp-head-callback'       => 'juzhaxpress_header_style',
 	) ) );
 }
-add_action( 'afterjuzhaxpressetup_theme', 'juzhaxpress_custom_headerjuzhaxpressetup' );
+add_action( 'after_setup_theme', 'juzhaxpress_custom_header_setup' );
 
-if ( ! function_exists( 'juzhaxpress_headerjuzhaxpresstyle' ) ) :
+if ( ! function_exists( 'juzhaxpress_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see juzhaxpress_custom_headerjuzhaxpressetup().
+	 * @see juzhaxpress_custom_header_setup().
 	 */
-	function juzhaxpress_headerjuzhaxpresstyle() {
+	function juzhaxpress_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*
 		 * If no custom options for text are set, let's bail.
-		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_themejuzhaxpressupport( 'custom-header' ).
+		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
 		 */
-		if ( get_themejuzhaxpressupport( 'custom-header', 'default-text-color' ) === $header_text_color ) {
+		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
 			return;
 		}
 

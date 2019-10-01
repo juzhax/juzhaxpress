@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 get_header();
@@ -19,7 +19,7 @@ get_header();
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'juzhaxpress' ), '<span>' . getjuzhaxpressearch_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'juzhaxpress' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
@@ -51,5 +51,5 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
-getjuzhaxpressidebar();
+get_sidebar();
 get_footer();

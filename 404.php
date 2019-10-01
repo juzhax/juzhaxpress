@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 get_header();
@@ -22,7 +22,7 @@ get_header();
 					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'juzhaxpress' ); ?></p>
 
 					<?php
-					getjuzhaxpressearch_form();
+					get_search_form();
 
 					the_widget( 'WP_Widget_Recent_Posts' );
 					?>
@@ -44,7 +44,7 @@ get_header();
 
 					<?php
 					/* translators: %1$s: smiley */
-					$juzhaxpress_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'juzhaxpress' ), convertjuzhaxpressmilies( ':)' ) ) . '</p>';
+					$juzhaxpress_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'juzhaxpress' ), convert_smilies( ':)' ) ) . '</p>';
 					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$juzhaxpress_archive_content" );
 
 					the_widget( 'WP_Widget_Tag_Cloud' );

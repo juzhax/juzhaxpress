@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 if ( ! function_exists( 'juzhaxpress_posted_on' ) ) :
@@ -12,12 +12,12 @@ if ( ! function_exists( 'juzhaxpress_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function juzhaxpress_posted_on() {
-		$timejuzhaxpresstring = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$timejuzhaxpresstring = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$timejuzhaxpresstring = sprintf( $timejuzhaxpresstring,
+		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
@@ -27,7 +27,7 @@ if ( ! function_exists( 'juzhaxpress_posted_on' ) ) :
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
 			esc_html_x( 'Posted on %s', 'post date', 'juzhaxpress' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $timejuzhaxpresstring . '</a>'
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
@@ -73,7 +73,7 @@ if ( ! function_exists( 'juzhaxpress_entry_footer' ) ) :
 			}
 		}
 
-		if ( ! isjuzhaxpressingle() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
@@ -123,7 +123,7 @@ if ( ! function_exists( 'juzhaxpress_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( isjuzhaxpressingular() ) :
+		if ( is_singular() ) :
 			?>
 
 			<div class="post-thumbnail">
@@ -143,6 +143,6 @@ if ( ! function_exists( 'juzhaxpress_post_thumbnail' ) ) :
 		</a>
 
 		<?php
-		endif; // End isjuzhaxpressingular().
+		endif; // End is_singular().
 	}
 endif;

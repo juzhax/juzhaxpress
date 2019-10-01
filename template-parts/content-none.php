@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 ?>
@@ -31,19 +31,19 @@
 				esc_url( admin_url( 'post-new.php' ) )
 			);
 
-		elseif ( isjuzhaxpressearch() ) :
+		elseif ( is_search() ) :
 			?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'juzhaxpress' ); ?></p>
 			<?php
-			getjuzhaxpressearch_form();
+			get_search_form();
 
 		else :
 			?>
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'juzhaxpress' ); ?></p>
 			<?php
-			getjuzhaxpressearch_form();
+			get_search_form();
 
 		endif;
 		?>

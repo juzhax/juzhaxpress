@@ -1,31 +1,31 @@
 <?php
 /**
- * juzhaxpress functions and definitions
+ * JuzhaxPress functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
-if ( ! function_exists( 'juzhaxpressjuzhaxpressetup' ) ) :
+if ( ! function_exists( 'juzhaxpress_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
-	 * Note that this function is hooked into the afterjuzhaxpressetup_theme hook, which
+	 * Note that this function is hooked into the after_setup_theme hook, which
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function juzhaxpressjuzhaxpressetup() {
+	function juzhaxpress_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on juzhaxpress, use a find and replace
+		 * If you're building a theme based on JuzhaxPress, use a find and replace
 		 * to change 'juzhaxpress' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'juzhaxpress', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
-		add_themejuzhaxpressupport( 'automatic-feed-links' );
+		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -33,14 +33,14 @@ if ( ! function_exists( 'juzhaxpressjuzhaxpressetup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_themejuzhaxpressupport( 'title-tag' );
+		add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_themejuzhaxpressupport( 'post-thumbnails' );
+		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -51,7 +51,7 @@ if ( ! function_exists( 'juzhaxpressjuzhaxpressetup' ) ) :
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_themejuzhaxpressupport( 'html5', array(
+		add_theme_support( 'html5', array(
 			'search-form',
 			'comment-form',
 			'comment-list',
@@ -60,20 +60,20 @@ if ( ! function_exists( 'juzhaxpressjuzhaxpressetup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_themejuzhaxpressupport( 'custom-background', apply_filters( 'juzhaxpress_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'juzhaxpress_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
 
 		// Add theme support for selective refresh for widgets.
-		add_themejuzhaxpressupport( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/**
 		 * Add support for core custom logo.
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_themejuzhaxpressupport( 'custom-logo', array(
+		add_theme_support( 'custom-logo', array(
 			'height'      => 250,
 			'width'       => 250,
 			'flex-width'  => true,
@@ -81,7 +81,7 @@ if ( ! function_exists( 'juzhaxpressjuzhaxpressetup' ) ) :
 		) );
 	}
 endif;
-add_action( 'afterjuzhaxpressetup_theme', 'juzhaxpressjuzhaxpressetup' );
+add_action( 'after_setup_theme', 'juzhaxpress_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -96,7 +96,7 @@ function juzhaxpress_content_width() {
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'juzhaxpress_content_width', 640 );
 }
-add_action( 'afterjuzhaxpressetup_theme', 'juzhaxpress_content_width', 0 );
+add_action( 'after_setup_theme', 'juzhaxpress_content_width', 0 );
 
 /**
  * Register widget area.
@@ -104,7 +104,7 @@ add_action( 'afterjuzhaxpressetup_theme', 'juzhaxpress_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function juzhaxpress_widgets_init() {
-	registerjuzhaxpressidebar( array(
+	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'juzhaxpress' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'juzhaxpress' ),
@@ -119,18 +119,18 @@ add_action( 'widgets_init', 'juzhaxpress_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function juzhaxpressjuzhaxpresscripts() {
-	wp_enqueuejuzhaxpresstyle( 'juzhaxpress-style', getjuzhaxpresstylesheet_uri() );
+function juzhaxpress_scripts() {
+	wp_enqueue_style( 'juzhaxpress-style', get_stylesheet_uri() );
 
-	wp_enqueuejuzhaxpresscript( 'juzhaxpress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'juzhaxpress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueuejuzhaxpresscript( 'juzhaxpress-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'juzhaxpress-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	if ( isjuzhaxpressingular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueuejuzhaxpresscript( 'comment-reply' );
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueuejuzhaxpresscripts', 'juzhaxpressjuzhaxpresscripts' );
+add_action( 'wp_enqueue_scripts', 'juzhaxpress_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -159,9 +159,3 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}

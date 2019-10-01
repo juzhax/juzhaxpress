@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 ?>
@@ -24,7 +24,7 @@
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'juzhaxpress' ), 'juzhaxpress', '<a href="https://automattic.com/">Automattic</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'juzhaxpress' ), 'juzhaxpress', '<a href="https://juzhax.com">juzhax</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

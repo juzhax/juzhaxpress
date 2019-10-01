@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 /**
@@ -13,12 +13,12 @@
  */
 function juzhaxpress_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
-	if ( ! isjuzhaxpressingular() ) {
+	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_activejuzhaxpressidebar( 'sidebar-1' ) ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
@@ -30,7 +30,7 @@ add_filter( 'body_class', 'juzhaxpress_body_classes' );
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 function juzhaxpress_pingback_header() {
-	if ( isjuzhaxpressingular() && pings_open() ) {
+	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }

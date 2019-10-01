@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 /**
@@ -14,19 +14,19 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function juzhaxpress_jetpackjuzhaxpressetup() {
+function juzhaxpress_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
-	add_themejuzhaxpressupport( 'infinite-scroll', array(
+	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'juzhaxpress_infinitejuzhaxpresscroll_render',
+		'render'    => 'juzhaxpress_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
 	// Add theme support for Responsive Videos.
-	add_themejuzhaxpressupport( 'jetpack-responsive-videos' );
+	add_theme_support( 'jetpack-responsive-videos' );
 
 	// Add theme support for Content Options.
-	add_themejuzhaxpressupport( 'jetpack-content-options', array(
+	add_theme_support( 'jetpack-content-options', array(
 		'post-details'    => array(
 			'stylesheet' => 'juzhaxpress-style',
 			'date'       => '.posted-on',
@@ -42,15 +42,15 @@ function juzhaxpress_jetpackjuzhaxpressetup() {
 		),
 	) );
 }
-add_action( 'afterjuzhaxpressetup_theme', 'juzhaxpress_jetpackjuzhaxpressetup' );
+add_action( 'after_setup_theme', 'juzhaxpress_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function juzhaxpress_infinitejuzhaxpresscroll_render() {
+function juzhaxpress_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
-		if ( isjuzhaxpressearch() ) :
+		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
 			get_template_part( 'template-parts/content', get_post_type() );

@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package juzhaxpress
+ * @package JuzhaxPress
  */
 
 get_header();
@@ -55,5 +55,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-getjuzhaxpressidebar();
+get_sidebar();
 get_footer();
