@@ -120,6 +120,11 @@ add_action( 'widgets_init', 'juzhaxpress_widgets_init' );
  * Enqueue scripts and styles.
  */
 function juzhaxpress_scripts() {
+	wp_enqueue_style('bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+	wp_enqueue_script( 'boot1','https://code.jquery.com/jquery-3.3.1.slim.min.js', array( 'jquery' ),'',true );
+	wp_enqueue_script( 'boot2','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array( 'jquery' ),'',true );
+	wp_enqueue_script( 'boot3','https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array( 'jquery' ),'',true );
+
 	wp_enqueue_style( 'juzhaxpress-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'juzhaxpress-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
